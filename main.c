@@ -4,7 +4,7 @@
 
 int main()
 {
-	ft_printf("%d\n", 1.36);
-	printf("%d\n", 1.36);
+	ft_printf("%x\n", -58);
+	printf("%x\n", -58);
 	return (0);
 }
