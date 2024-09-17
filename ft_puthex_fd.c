@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_puthex_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aitormar <aitormar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/17 12:59:43 by aitormar          #+#    #+#             */
-/*   Updated: 2024/09/17 14:41:01 by aitormar         ###   ########.fr       */
+/*   Created: 2024/09/17 15:38:55 by aitormar          #+#    #+#             */
+/*   Updated: 2024/09/17 15:49:11 by aitormar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_printf(char const *c, ...)
+int	ft_puthex_fd(unsigned long num, int fd, int cont, char m)
 {
-	va_list	ap;
-	int		i;
-	int		cont;
+	char	*baseX;
+	char	*basex;
 
-	cont = 0;
-	i = 0;
-	va_start(ap, c);
-	while (c[i])
+	baseX = "0123456789ABCDEF";
+	basex = "0123456789abcdef";
+	if (num > 16)
 	{
-		if (c[i] == '%')
-		{
-			cont += ft_whattoprint(ap, c, i);
-			i++;
-		}
-		else
-		{
-			cont++;
-			ft_putchar_fd(c[i], 1);
-		}
-		i++;
+		cont = ft_putunbrbas_fd(num / 16, fd, cont);
+		cont = ft_putunbrbas_fd(num % 16, fd, cont);
 	}
-	va_end(ap);
+	else
+	{
+		cont++;
+		if (m == 'X')
+			ft_putchar_fd(baseX[num], fd);
+		else
+			ft_putchar_fd(basex[num], fd);
+	}
 	return (cont);
 }

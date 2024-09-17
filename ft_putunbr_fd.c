@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunbr_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putunbr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aitormar <aitormar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/10 12:33:10 by aitormar          #+#    #+#             */
-/*   Updated: 2024/09/10 12:41:20 by aitormar         ###   ########.fr       */
+/*   Created: 2024/09/17 15:27:39 by aitormar          #+#    #+#             */
+/*   Updated: 2024/09/17 15:30:26 by aitormar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void ft_putunbr_fd(unsigned int num, int fd)
+int	ft_putunbr_fd(unsigned long num, int fd, int cont)
 {
-	if (num > 9)
+	if (num > 10)
 	{
-		ft_putunbr_fd(num / 10, fd);
-		ft_putunbr_fd(num % 10, fd);
+		cont = ft_putunbr_fd(num / 10, 1, fd);
+		cont = ft_putunbr_fd(num % 10, 1, fd);
 	}
 	else
+	{
+		cont++;
 		ft_putchar_fd(num + '0', fd);
+	}
+	return (cont);
 }

@@ -6,11 +6,11 @@
 /*   By: aitormar <aitormar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 12:17:46 by aitormar          #+#    #+#             */
-/*   Updated: 2024/09/03 12:33:45 by aitormar         ###   ########.fr       */
+/*   Updated: 2024/09/17 14:43:21 by aitormar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+/* #include "libft.h"
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
@@ -33,4 +33,4 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		auxres->next;
 	}
 	return (res);
-}
+} */

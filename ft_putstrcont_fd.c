@@ -1,40 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putstrcont_fd.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aitormar <aitormar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/17 12:59:43 by aitormar          #+#    #+#             */
-/*   Updated: 2024/09/17 14:41:01 by aitormar         ###   ########.fr       */
+/*   Created: 2024/09/17 14:37:22 by aitormar          #+#    #+#             */
+/*   Updated: 2024/09/17 15:15:42 by aitormar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_printf(char const *c, ...)
+int	ft_putstrcont_fd(char *s, int fd)
 {
-	va_list	ap;
-	int		i;
-	int		cont;
+	int	i;
 
-	cont = 0;
 	i = 0;
-	va_start(ap, c);
-	while (c[i])
+	if (!s)
+		return (0);
+	while (s[i])
 	{
-		if (c[i] == '%')
-		{
-			cont += ft_whattoprint(ap, c, i);
-			i++;
-		}
-		else
-		{
-			cont++;
-			ft_putchar_fd(c[i], 1);
-		}
+		ft_putchar_fd(s[i], fd);
 		i++;
 	}
-	va_end(ap);
-	return (cont);
+	return (i);
 }
