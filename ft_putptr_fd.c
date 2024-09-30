@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putptr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aitormar <aitormar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/30 16:09:36 by aitormar          #+#    #+#             */
-/*   Updated: 2024/09/30 16:09:53 by aitormar         ###   ########.fr       */
+/*   Created: 2024/09/17 15:38:55 by aitormar          #+#    #+#             */
+/*   Updated: 2024/09/30 16:41:29 by aitormar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_puthex_fd(unsigned long num, int fd, int cont, char m)
+int	ft_putptr_fd(unsigned long num, int fd, int cont, char m)
 {
-	char	*basexx;
-	char	*basex;
-
-	basexx = "0123456789ABCDEF";
-	basex = "0123456789abcdef";
-	if (num > 16)
+	if (!num)
 	{
-		cont = ft_puthex_fd(num / 16, fd, cont, m);
-		cont = ft_puthex_fd(num % 16, fd, cont, m);
+		cont = 5;
+		ft_putstr_fd("(nil)", 1);
 	}
 	else
 	{
-		cont++;
-		if (m == 'X')
-			ft_putchar_fd(basexx[num], fd);
-		else
-			ft_putchar_fd(basex[num], fd);
+		ft_putstr_fd("0x", 1);
+		cont = 2 + ft_puthex_fd(num, fd, cont, m);
 	}
 	return (cont);
 }

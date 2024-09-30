@@ -6,7 +6,7 @@
 #    By: aitormar <aitormar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/20 13:24:18 by aitormar          #+#    #+#              #
-#    Updated: 2024/09/18 14:20:52 by aitormar         ###   ########.fr        #
+#    Updated: 2024/09/30 16:30:54 by aitormar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME = libftprintf.a
 
 MY_SOURCES = ft_printf.c\
 						ft_puthex_fd.c\
+						ft_putptr_fd.c\
 						ft_putnbrcont_fd.c\
 						ft_putstrcont_fd.c\
 						ft_putunbr_fd.c\

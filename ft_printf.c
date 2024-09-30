@@ -6,11 +6,12 @@
 /*   By: aitormar <aitormar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 12:59:43 by aitormar          #+#    #+#             */
-/*   Updated: 2024/09/17 14:41:01 by aitormar         ###   ########.fr       */
+/*   Updated: 2024/09/30 16:36:07 by aitormar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+
 
 int	ft_printf(char const *c, ...)
 {
@@ -37,4 +38,15 @@ int	ft_printf(char const *c, ...)
 	}
 	va_end(ap);
 	return (cont);
+}
+
+int main(void)
+{
+	char *str = "Hola";
+	char *str2 = NULL;
+
+	int i = ft_printf("Hola %c %s %p %p %d %i %u %x %X %%\n", 'a', "Adios", str, str2, -89, 42, -42, 42, 42);
+	int j = printf("Hola %c %s %p %p %d %i %u %x %X %%\n", 'a', "Adios", str, str2, -89, 42, -42, 42, 42);
+
+	ft_printf("ft_printf --> %i\nprintf --> %i\n", i, j);
 }

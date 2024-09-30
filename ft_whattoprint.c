@@ -6,7 +6,7 @@
 /*   By: aitormar <aitormar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 12:48:05 by aitormar          #+#    #+#             */
-/*   Updated: 2024/09/18 14:03:27 by aitormar         ###   ########.fr       */
+/*   Updated: 2024/09/30 16:43:04 by aitormar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ int	ft_whattoprint(va_list	ap, char const *c, int i)
 		cont = ft_puthex_fd(va_arg(ap, unsigned int), 1, cont, 'X');
 	else if (c[i + 1] == 'p')
 	{
-		ft_putstr_fd("0x", 1);
-		cont = 2 + ft_puthex_fd(va_arg(ap, unsigned long), 1, cont, 'x');
+
+		cont = ft_putptr_fd(va_arg(ap, unsigned long), 1, cont, 'x');
 	}
 	else
 		ft_putchar_fd(c[i], 1);
